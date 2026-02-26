@@ -1,1 +1,153 @@
-# youtube-ad
+# youtu﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscribe to My YouTube Channel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .banner {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .banner:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #ff0000;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .counter {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-dot {
+            width: 14px;
+            height: 14px;
+            background-color: red;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+
+        .subscribe-btn {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .banner { padding: 30px 20px; }
+            h1 { font-size: 32px; }
+            p { font-size: 16px; }
+            .counter { font-size: 24px; }
+            .subscribe-btn { font-size: 16px; padding: 12px 28px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 26px; }
+            p { font-size: 14px; }
+            .counter { font-size: 20px; }
+            .subscribe-btn { font-size: 14px; padding: 10px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="banner">
+        <h1>🔥 Subscribe Now 🔥</h1>
+        <p>Join the fastest growing community on YouTube!</p>
+
+        <div class="counter">
+            <span class="live-dot"></span>
+            Subscribers: <span id="subCount">0</span>
+        </div>
+
+        <a href="https://www.youtube.com/channel/UCl28IFKn6XC9WQOvdGS_7Vg" target="_blank" class="subscribe-btn">
+            SUBSCRIBE
+        </a>
+    </div>
+
+    <script>
+        let count = 0;
+        let target = 15284; // Starting target number
+        const counter = document.getElementById("subCount");
+        const speed = 20;
+
+        // Smooth count-up from 0
+        const updateCount = () => {
+            const increment = Math.ceil(target / 200);
+            if (count < target) {
+                count += increment;
+                counter.textContent = count.toLocaleString();
+                setTimeout(updateCount, speed);
+            } else {
+                counter.textContent = target.toLocaleString();
+                startLiveIncrease();
+            }
+        };
+
+        // Slow live increase afterward
+        function startLiveIncrease() {
+            setInterval(() => {
+                const liveIncrement = Math.floor(Math.random() * 3) + 1;
+                target += liveIncrement;
+                counter.textContent = target.toLocaleString();
+            }, 3000);
+        }
+
+        updateCount();
+    </script>
+
+</body>
+</html>be-ad
